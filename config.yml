@@ -1,4 +1,4 @@
-baseURL: ""
+baseURL: "https://hpstudycs.netlify.app/"
 languageCode: en-us
 title: "HuuPhuoc's Blog"
 theme: "PaperMod"
