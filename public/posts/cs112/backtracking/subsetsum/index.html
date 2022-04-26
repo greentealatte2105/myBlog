@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Subset-Sum Problem | HuuPhuoc&#39;s Blog</title>
+<meta name="keywords" content="CS112">
+<meta name="description" content="Đặt Vấn Đề: Hãy tìm các tập con thuộc $A = \lbrace{a_1, a_2,&hellip;, a_n \rbrace} $ gồm $n$ số nguyên dương sao cho tổng các phần tử của từng tập con tìm được được phải bằng một số nguyên dương $d$. Để tiện lợi hơn, ta sẽ giả sử các phần tử được sắp xếp tăng dần: $$ a_1 &lt; a_2 &lt;&hellip;&lt; a_n. $$
+Input:  Một dãy số nguyên dương được sắp xếp tăng dần.">
+<meta name="author" content="Trần Phú Vinh">
+<link rel="canonical" href="/posts/cs112/backtracking/subsetsum/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.b4e19c453811e60acfec1f00c15ac2be1c53f6ab90187e684358ce7faaf48bab.css" integrity="sha256-tOGcRTgR5grP7B8AwVrCvhxT9quQGH5oQ1jOf6r0i6s=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="mask-icon" href="safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Subset-Sum Problem" />
+<meta property="og:description" content="Đặt Vấn Đề: Hãy tìm các tập con thuộc $A = \lbrace{a_1, a_2,&hellip;, a_n \rbrace} $ gồm $n$ số nguyên dương sao cho tổng các phần tử của từng tập con tìm được được phải bằng một số nguyên dương $d$. Để tiện lợi hơn, ta sẽ giả sử các phần tử được sắp xếp tăng dần: $$ a_1 &lt; a_2 &lt;&hellip;&lt; a_n. $$
+Input:  Một dãy số nguyên dương được sắp xếp tăng dần." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/cs112/backtracking/subsetsum/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-04-14T05:56:31&#43;07:00" />
+<meta property="article:modified_time" content="2022-04-14T05:56:31&#43;07:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Subset-Sum Problem"/>
+<meta name="twitter:description" content="Đặt Vấn Đề: Hãy tìm các tập con thuộc $A = \lbrace{a_1, a_2,&hellip;, a_n \rbrace} $ gồm $n$ số nguyên dương sao cho tổng các phần tử của từng tập con tìm được được phải bằng một số nguyên dương $d$. Để tiện lợi hơn, ta sẽ giả sử các phần tử được sắp xếp tăng dần: $$ a_1 &lt; a_2 &lt;&hellip;&lt; a_n. $$
+Input:  Một dãy số nguyên dương được sắp xếp tăng dần."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Subset-Sum Problem",
+      "item": "/posts/cs112/backtracking/subsetsum/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Subset-Sum Problem",
+  "name": "Subset-Sum Problem",
+  "description": "Đặt Vấn Đề: Hãy tìm các tập con thuộc $A = \\lbrace{a_1, a_2,\u0026hellip;, a_n \\rbrace} $ gồm $n$ số nguyên dương sao cho tổng các phần tử của từng tập con tìm được được phải bằng một số nguyên dương $d$. Để tiện lợi hơn, ta sẽ giả sử các phần tử được sắp xếp tăng dần: $$ a_1 \u0026lt; a_2 \u0026lt;\u0026hellip;\u0026lt; a_n. $$\nInput:  Một dãy số nguyên dương được sắp xếp tăng dần.",
+  "keywords": [
+    "CS112"
+  ],
+  "articleBody": "Đặt Vấn Đề: Hãy tìm các tập con thuộc $A = \\lbrace{a_1, a_2,…, a_n \\rbrace} $ gồm $n$ số nguyên dương sao cho tổng các phần tử của từng tập con tìm được được phải bằng một số nguyên dương $d$. Để tiện lợi hơn, ta sẽ giả sử các phần tử được sắp xếp tăng dần: $$ a_1 Input:  Một dãy số nguyên dương được sắp xếp tăng dần. Một số nguyên dương $d$.  Output:  Các tập con của dãy số nhập vào có tổng bằng $d$.  Hướng tiếp cận: Phương pháp 1: Brute-force: Ta có thể sử dụng brute force bằng cách tính tổng mọi tập hợp con và so sánh với $d$.\nfrom itertools import combinations  def SubSetSum(arr, d):  for i in range(1, len(arr) + 1):  for subset in combinations(arr, i):  if sum(subset) == d:  print(subset)  if __name__ == '__main__':  array = list(map(int, input().split()))  d = int(input())  SubSetSum(array, d) Hiển nhiên, cách tiếp cận brute force này chỉ thích hợp với input có đầu vào nhỏ. Khi kích thước mảng đầu vào tăng, số tập con mà ta phải kiểm tra với mảng có $n$ phần tử là $2^n - 1$ (không xét tập con rỗng).\nPhương pháp 2: Backtracking: Với Backtracking, ta sẽ tạo thêm một mảng kết quả Result và luôn theo dõi tổng thay đổi như thế nào khi thêm phần tử $a_i$ vào mảng. Cách hoạt động của Backtracking được diễn tả bằng State-Space-Tree như sau:\nInput\n $A = 3,5,6,7$ $d = 15$  Ta có thể xây dựng state-space tree là một cây nhị phân với giá trị của từng nút là tổng các phần tử trong mảng Result. Các nhánh bên trái là trường hợp thêm phần tử $a_i$ vào Result và Backtracking (quay lui) lại nút cha để tiếp tục tìm kiếm. Nếu $s$ không bằng $d$ thì ta sẽ bỏ nút hiện tại khi gặp một trong hai trường hợp sau:\n  $s$ lớn hơn $d$ khi thêm $a_{i+1}$ $$ s + a_{i+1}  d. $$\n  Tổng $s$ và các phần tử phía sau vẫn nhỏ hơn $d$. $$ s + \\sum_{j = i + 1}^{n} a_j  Pseudo-code:  Giải thuật SubSetSum(A[], R[], sum, d):\rif sum == d:\rwrite R[]\rreturn\relse if sum  d or len(A[]) == 0:\rreturn\relse:\rSubSetSum(A[1..i], R[], sum, d)\rR[].append(A[0])\rSubSetSum(A[1..i], R[], sum + A[0], d) ",
+  "wordCount" : "400",
+  "inLanguage": "en",
+  "datePublished": "2022-04-14T05:56:31+07:00",
+  "dateModified": "2022-04-14T05:56:31+07:00",
+  "author":{
+    "@type": "Person",
+    "name": "Trần Phú Vinh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/posts/cs112/backtracking/subsetsum/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HuuPhuoc's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "favicon.ico"
+    }
+  }
+}
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="" accesskey="h" title="HuuPhuoc&#39;s Blog (Alt + H)">HuuPhuoc&#39;s Blog</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="">Home</a>&nbsp;»&nbsp;<a href="/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Subset-Sum Problem
+    </h1>
+    <div class="post-meta"><span title='2022-04-14 05:56:31 +0700 +07'>April 14, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Trần Phú Vinh
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="đặt-vấn-đề">Đặt Vấn Đề:<a hidden class="anchor" aria-hidden="true" href="#đặt-vấn-đề">#</a></h2>
+<p>Hãy tìm các tập con thuộc $A = \lbrace{a_1, a_2,&hellip;, a_n \rbrace} $ gồm $n$ số nguyên dương sao cho tổng các phần tử của từng tập con tìm được được phải bằng một số nguyên dương $d$. Để tiện lợi hơn, ta sẽ giả sử các phần tử được sắp xếp tăng dần:
+$$ a_1 &lt; a_2 &lt;&hellip;&lt; a_n. $$</p>
+<h3 id="input">Input:<a hidden class="anchor" aria-hidden="true" href="#input">#</a></h3>
+<ul>
+<li>Một dãy số nguyên dương được sắp xếp tăng dần.</li>
+<li>Một số nguyên dương $d$.</li>
+</ul>
+<h3 id="output">Output:<a hidden class="anchor" aria-hidden="true" href="#output">#</a></h3>
+<ul>
+<li>Các tập con của dãy số nhập vào có tổng bằng $d$.</li>
+</ul>
+<h2 id="hướng-tiếp-cận">Hướng tiếp cận:<a hidden class="anchor" aria-hidden="true" href="#hướng-tiếp-cận">#</a></h2>
+<h3 id="phương-pháp-1-brute-force">Phương pháp 1: Brute-force:<a hidden class="anchor" aria-hidden="true" href="#phương-pháp-1-brute-force">#</a></h3>
+<p>Ta có thể sử dụng brute force bằng cách tính tổng mọi tập hợp con và so sánh với $d$.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> itertools <span style="color:#f92672">import</span> combinations
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">SubSetSum</span>(arr, d):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, len(arr) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> subset <span style="color:#f92672">in</span> combinations(arr, i):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> sum(subset) <span style="color:#f92672">==</span> d:
+</span></span><span style="display:flex;"><span>                print(subset)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    array <span style="color:#f92672">=</span> list(map(int, input()<span style="color:#f92672">.</span>split()))
+</span></span><span style="display:flex;"><span>    d <span style="color:#f92672">=</span> int(input())
+</span></span><span style="display:flex;"><span>    SubSetSum(array, d)
+</span></span></code></pre></div><p>Hiển nhiên, cách tiếp cận brute force này chỉ thích hợp với input có đầu vào nhỏ. Khi kích thước mảng đầu vào tăng, số tập con mà ta phải kiểm tra với mảng có $n$ phần tử là $2^n - 1$ (không xét tập con rỗng).</p>
+<h3 id="phương-pháp-2-backtracking">Phương pháp 2: Backtracking:<a hidden class="anchor" aria-hidden="true" href="#phương-pháp-2-backtracking">#</a></h3>
+<p>Với Backtracking, ta sẽ tạo thêm một mảng kết quả <em><strong>Result</strong></em> và luôn theo dõi tổng thay đổi như thế nào khi thêm phần tử $a_i$ vào mảng. Cách hoạt động của Backtracking được diễn tả bằng <strong>State-Space-Tree</strong> như sau:</p>
+<p><strong>Input</strong></p>
+<ul>
+<li>$A = 3,5,6,7$</li>
+<li>$d = 15$</li>
+</ul>
+<p><img loading="lazy" src="/images/CompletedSearch-Backtracking/SubSetSum/state-space-tree.png" alt="State-Space-Tree"  />
+</p>
+<p>Ta có thể xây dựng state-space tree là một cây nhị phân với giá trị của từng nút là tổng các phần tử trong mảng <em><strong>Result</strong></em>. Các nhánh bên trái là trường hợp thêm phần tử $a_i$ vào <em><strong>Result</strong></em> và <em><strong>Backtracking</strong></em> (quay lui) lại nút cha để tiếp tục tìm kiếm. Nếu $s$ không bằng $d$ thì ta sẽ bỏ nút hiện tại khi gặp một trong hai trường hợp sau:</p>
+<ul>
+<li>
+<p>$s$ lớn hơn $d$ khi thêm $a_{i+1}$
+$$ s + a_{i+1} &gt; d. $$</p>
+</li>
+<li>
+<p>Tổng $s$ và các phần tử phía sau vẫn nhỏ hơn $d$.
+$$ s +    \sum_{j = i + 1}^{n} a_j &lt; d.  $$</p>
+</li>
+</ul>
+<h2 id="pseudo-code">Pseudo-code:<a hidden class="anchor" aria-hidden="true" href="#pseudo-code">#</a></h2>
+<pre tabindex="0"><code>    Giải thuật SubSetSum(A[], R[], sum, d):
+        if sum == d:
+            write R[]
+            return
+        else if sum &gt; d or len(A[]) == 0:
+            return
+        else:
+            SubSetSum(A[1..i], R[], sum, d)
+            R[].append(A[0])
+            SubSetSum(A[1..i], R[], sum + A[0], d)
+</code></pre>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="/tags/cs112/">CS112</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="/posts/cs112/timecomplexity/asymptoticnotion/">
+    <span class="title">« Prev Page</span>
+    <br>
+    <span>Khái niệm Tiệm Cận và Độ Phức Tạp của Thuật Toán</span>
+  </a>
+  <a class="next" href="/posts/cs112/backtracking/hamiltionial_cycle/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>Hamiltonian Circuit Problem</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="">HuuPhuoc&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

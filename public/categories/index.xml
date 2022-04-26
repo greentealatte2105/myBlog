@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on HuuPhuoc&#39;s Blog</title>
+    <link>/categories/</link>
+    <description>Recent content in Categories on HuuPhuoc&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 18 Apr 2022 17:15:08 +0700</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Complexity</title>
+      <link>/categories/complexity/</link>
+      <pubDate>Mon, 18 Apr 2022 17:15:08 +0700</pubDate>
+      
+      <guid>/categories/complexity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Algorithms</title>
+      <link>/categories/algorithms/</link>
+      <pubDate>Thu, 14 Apr 2022 05:56:31 +0700</pubDate>
+      
+      <guid>/categories/algorithms/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

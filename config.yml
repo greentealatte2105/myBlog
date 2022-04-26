@@ -1,0 +1,44 @@
+baseURL: ""
+languageCode: en-us
+title: "HuuPhuoc's Blog"
+theme: "PaperMod"
+
+params:
+  math: true
+  homeInfoParams:
+    Title: "Chào !"
+    Content: Chúc bạn có những trải nghiệm vui vẻ tại nơi đây.
+  socialIcons:
+    - name: email
+      url: "mailto: phuockhoi1@gmail.com"
+    - name: facebook
+      url: "https://www.facebook.com/greentealatte2105/"
+    - name: instagram
+      url: "https://www.instagram.com/h.phuo8c/"
+    - name: github
+      url: "https://github.com/greentealatte2105"
+  cover:
+    linkFullImages: true
+
+  ShowBreadCrumbs: true
+
+  ShowReadingTime: true
+
+  ShowPostNavLinks: true
+
+
+menu:
+  main:
+    - indentifier: categories
+      name: Categories
+      url: /categories/
+      weight: 10
+    - indentifier: tags
+      name: Tags
+      url: /tags/
+      weight: 20
+    - indentifier: archives
+      name: Archives
+      url: /archives/
+      weight: 30
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on HuuPhuoc&#39;s Blog</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on HuuPhuoc&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 18 Apr 2022 17:15:08 +0700</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CS112</title>
+      <link>/tags/cs112/</link>
+      <pubDate>Mon, 18 Apr 2022 17:15:08 +0700</pubDate>
+      
+      <guid>/tags/cs112/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

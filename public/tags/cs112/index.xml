@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>CS112 on HuuPhuoc&#39;s Blog</title>
+    <link>/tags/cs112/</link>
+    <description>Recent content in CS112 on HuuPhuoc&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 18 Apr 2022 17:15:08 +0700</lastBuildDate><atom:link href="/tags/cs112/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Khái niệm Tiệm Cận và Độ Phức Tạp của Thuật Toán</title>
+      <link>/posts/cs112/timecomplexity/asymptoticnotion/</link>
+      <pubDate>Mon, 18 Apr 2022 17:15:08 +0700</pubDate>
+      
+      <guid>/posts/cs112/timecomplexity/asymptoticnotion/</guid>
+      <description>Tóm tắt nội dung: Bài báo cáo này nhằm giới thiệu cho bạn đọc một cái nhìn tổng quan nhất về mặt lí thuyết dành cho các khái niệm liên quan đến vấn đề tiệm cận và cách tìm độ phức tạp của thuật toán. Bài báo cáo sẽ giới thiệu từ ý tưởng sơ khai đến những phân tích về mặt toán học của bài toán, về cách hoạt động và một số ví dụ điển hình của vấn đề trên.</description>
+    </item>
+    
+    <item>
+      <title>Subset-Sum Problem</title>
+      <link>/posts/cs112/backtracking/subsetsum/</link>
+      <pubDate>Thu, 14 Apr 2022 05:56:31 +0700</pubDate>
+      
+      <guid>/posts/cs112/backtracking/subsetsum/</guid>
+      <description>Đặt Vấn Đề: Hãy tìm các tập con thuộc $A = \lbrace{a_1, a_2,&amp;hellip;, a_n \rbrace} $ gồm $n$ số nguyên dương sao cho tổng các phần tử của từng tập con tìm được được phải bằng một số nguyên dương $d$. Để tiện lợi hơn, ta sẽ giả sử các phần tử được sắp xếp tăng dần: $$ a_1 &amp;lt; a_2 &amp;lt;&amp;hellip;&amp;lt; a_n. $$
+Input:  Một dãy số nguyên dương được sắp xếp tăng dần.</description>
+    </item>
+    
+    <item>
+      <title>Hamiltonian Circuit Problem</title>
+      <link>/posts/cs112/backtracking/hamiltionial_cycle/</link>
+      <pubDate>Wed, 13 Apr 2022 23:14:03 +0700</pubDate>
+      
+      <guid>/posts/cs112/backtracking/hamiltionial_cycle/</guid>
+      <description>Đặt vấn đề: Chu trình Hamilton là một dạng bài toán phổ biến trong bài toán đồ thị. Vậy chu trình Hamilton là gì? Bắt đầu với định nghĩa sau:
+ Cho đồ thị $G = $ { $V$, $E$ }$ $ có $V$ là tập đỉnh, $E$ là tập cạnh, gồm $n$ đỉnh:  Đường đi $x_0, x_1, &amp;hellip;, x_{n-1}, x_{n}$ gọi là đường đi Hamilton nếu: $V$ = {$x_0, x_1,&amp;hellip;,x_{n-1}, x_n$} với $x_i \not = x_j; 0 \leq i &amp;lt; j \leq n.</description>
+    </item>
+    
+    <item>
+      <title>N-queen Problem</title>
+      <link>/posts/cs112/backtracking/n-queenproblem/</link>
+      <pubDate>Mon, 11 Apr 2022 22:13:03 +0700</pubDate>
+      
+      <guid>/posts/cs112/backtracking/n-queenproblem/</guid>
+      <description>Nêu vấn đề:  N-queen là bài toán tìm cách đặt N quân hậu trên một bàn cờ có kích thước N x N sao cho không có 2 quân hậu nào có thể tấn công được nhau. VD: với N = 4, ta sẽ có kết quả như sau:
+ Input: Một số nguyên N.
+Output: Một ma trận nhị phân, với 1 là vị trí của quân hậu thỏa mãn, 0 là ô trống.</description>
+    </item>
+    
+  </channel>
+</rss>
