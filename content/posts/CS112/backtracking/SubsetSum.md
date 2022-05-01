@@ -48,7 +48,7 @@ Với Backtracking, ta sẽ tạo thêm một mảng kết quả ***Result*** v�
 - $A = 3,5,6,7$
 - $d = 15$
 
-![State-Space-Tree](/images/CompletedSearch-Backtracking/SubSetSum/state-space-tree.png)
+![State-Space-Tree](/images/CS112/CompletedSearch-Backtracking/SubSetSum/state-space-tree.png)
 
 Ta có thể xây dựng state-space tree là một cây nhị phân với giá trị của từng nút là tổng các phần tử trong mảng ***Result***. Các nhánh bên trái là trường hợp thêm phần tử $a_i$ vào ***Result*** và ***Backtracking*** (quay lui) lại nút cha để tiếp tục tìm kiếm. Nếu $s$ không bằng $d$ thì ta sẽ bỏ nút hiện tại khi gặp một trong hai trường hợp sau:
 

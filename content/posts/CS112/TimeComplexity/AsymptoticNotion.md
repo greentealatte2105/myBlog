@@ -70,7 +70,7 @@ VD:
 
 Để trực quan hơn, ta sẽ minh họa như Hình 1, ở đây $n$ sẽ được mở rộng là một số thực.
 
-![Hình 1](/images/AsymptoticNotation/O-notation.jpg "Hình 1")
+![Hình 1](/images/CS112/AsymptoticNotation/O-notation.jpg "Hình 1")
 Hình 1: $O - Notation: t(n) \in O(g(n))$.
 
 #### VD: Chứng minh $100n + 5 \in O(n^2)$.
@@ -89,7 +89,7 @@ Dễ dàng ta có được $c = 101$ và $n_0 = 5$.
 
 Để trực quan hơn, ta sẽ minh họa như Hình 2, ở đây $n$ cũng sẽ được mở rộng thành một số thực.
 
-![Hình 2](/images/AsymptoticNotation/Omega-notation.jpg "Hình 2")
+![Hình 2](/images/CS112/AsymptoticNotation/Omega-notation.jpg "Hình 2")
 Hình 2: $\Omega - Notation: t(n) \in \Omega(g(n))$.
 
 #### VD: Chứng minh: $n^3 \in \Omega(n^2).$
@@ -102,7 +102,7 @@ Ta có thể chọn $c = 1$ và $n_0 = 0$.
 
 Để trực quan hơn, ta sẽ minh họa ở Hình 3.
 
-![Hình 3](/images/AsymptoticNotation/Theta-notation.jpg "Hình 3")
+![Hình 3](/images/CS112/AsymptoticNotation/Theta-notation.jpg "Hình 3")
 Hình 3: $\Theta - Notation: t(n) \in \Theta(g(n))$.
 
 #### VD: Chứng minh $n(n-1) \in \Theta(n^2)$:

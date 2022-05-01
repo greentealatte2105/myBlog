@@ -18,11 +18,11 @@ Chu trình Hamilton là một dạng bài toán phổ biến trong bài toán đ
 ### Ví Dụ:
 Với đồ thị sau:
 
-![đồ thị 1](/images/CompletedSearch-Backtracking/HamiltonianCycle/dothihamilton1.png)
+![đồ thị 1](/images/CS112/CompletedSearch-Backtracking/HamiltonianCycle/dothihamilton1.png)
 
 Ta có thể tìm ra một chu trình Hamilton là: $a \to b \to f \to e \to c \to d \to a.$
 
-![đồ thị 2](/images/CompletedSearch-Backtracking/HamiltonianCycle/dothihamilton2.png)
+![đồ thị 2](/images/CS112/CompletedSearch-Backtracking/HamiltonianCycle/dothihamilton2.png)
 
 - **Input:** là một [ma trận kề](https://vi.wikipedia.org/wiki/Ma_tr%E1%BA%ADn_k%E1%BB%81) 2 chiều $n \times n$
 
@@ -48,7 +48,7 @@ $\begin{bmatrix}
     - Bước 3: Nếu chúng ta quay về được đỉnh xuất phát sau khi thăm tất cả các đỉnh của đồ thị thì đó là một chu trình Hamilton của đồ thị, ngược lại thì không tồn tại chu trình Hamilton. Lưu ý: cần phải đánh dấu mỗi đỉnh đã được thăm để không thể thăm đỉnh đó quá 1 lần.
 - Minh họa quá trình giải bài toán bằng giải thuật quay lui sử dụng state-space tree:
 
-![state-space-tree](/images/CompletedSearch-Backtracking/HamiltonianCycle/state-space-tree.png)
+![state-space-tree](/images/CS112/CompletedSearch-Backtracking/HamiltonianCycle/state-space-tree.png)
 
 ### Pseudo-Code:
 
